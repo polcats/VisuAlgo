@@ -42,7 +42,7 @@ const valueText = (val: number) => {
 
 const Menu: React.FC<{}> = () => {
   const classes = useStyles();
-  const [algo, setAlgo] = React.useState('');
+  const [algo, setAlgo] = React.useState('bubble');
   const [order, setOrder] = React.useState('asc');
 
   const onSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -113,13 +113,13 @@ const Menu: React.FC<{}> = () => {
           <FormControl className={classes.formControl}>
             <InputLabel htmlFor="uncontrolled-native">Algorithm</InputLabel>
             <NativeSelect
-              defaultValue={10}
+              defaultValue={algo}
               inputProps={{
                 name: 'name',
                 id: 'uncontrolled-native',
               }}
             >
-              <option value={10}>Bubble Sort</option>
+              <option value="bubble">Bubble Sort</option>
               <option value={20}>Twenty</option>
               <option value={30}>Thirty</option>
             </NativeSelect>
