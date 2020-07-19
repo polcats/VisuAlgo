@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { observable, computed } from 'mobx';
 import { model, Model, modelAction, prop } from 'mobx-keystone';
 import SortingAlgorithms, { SortState } from '../SortingAlgorithms';
 
@@ -55,6 +55,11 @@ class MenuModel extends Model({
   @observable
   order = SortOrder.ascending;
 
+  @computed
+  get animSpeed() {
+    return (101 - this.speed) * 5;
+  }
+
   @modelAction
   generateBars = () => {
     const set = new Set<Bar>();
@@ -97,10 +102,22 @@ class MenuModel extends Model({
 
   @modelAction
   reset = () => {
-    this.state = 0;
-    this.solution = [];
-    this.solStep = 0;
-    this.generateBars();
+    if (this.state !== MenuStates.playing) {
+      this.state = 0;
+      this.solution = [];
+      this.solStep = 0;
+      this.generateBars();
+    }
+  };
+
+  @modelAction
+  nextState = () => {
+    this.solStep++;
+    if (!this.solution[this.solStep]?.bars) {
+      this.state = 3;
+      return;
+    }
+    this.bars = this.solution[this.solStep].bars;
   };
 }
 

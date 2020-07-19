@@ -25,7 +25,7 @@ const MenuControls: React.FC<StoreProps> = ({ store }) => {
         }}
       />
       <ReplayIcon
-        color="primary"
+        color={store.state !== 1 ? 'primary' : 'disabled'}
         fontSize="large"
         onClick={() => {
           store.reset();

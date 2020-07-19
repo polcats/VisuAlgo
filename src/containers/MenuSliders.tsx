@@ -47,7 +47,7 @@ const MenuSliders: React.FC<StoreProps> = ({ store }) => {
           min={10}
           max={100}
           onChange={onSetSpeed}
-          disabled={store.state !== 0 ? true : false}
+          disabled={store.state === 1 || store.state === 3 ? true : false}
         />
       </Grid>
       <Grid item>

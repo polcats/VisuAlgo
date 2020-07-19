@@ -4,6 +4,13 @@ export type SortState = {
   bars: Bar[];
 };
 
+const createFinalState = (state: SortState) => {
+  for (let i = 0; i < state.bars.length; ++i) {
+    state.bars[i].isColored = false;
+  }
+  return state;
+};
+
 class SortingAlgorithms {
   static bubble(e: Bar[], order: string) {
     let elements = [...e];
@@ -13,7 +20,9 @@ class SortingAlgorithms {
     for (let i = 0; i < elements.length; ++i) {
       swapped = false;
       for (let j = 0; j < elements.length - 1; ++j) {
-        const tempState: SortState = { bars: [...elements] };
+        const tempState: SortState = JSON.parse(
+          JSON.stringify({ bars: [...elements] }),
+        );
         tempState.bars[j].isColored = true;
         tempState.bars[j + 1].isColored = true;
         states.push(tempState);
@@ -28,7 +37,9 @@ class SortingAlgorithms {
           elements[j] = elements[j + 1];
           elements[j + 1] = tempElem;
 
-          const tempComparedState: SortState = { bars: [...elements] };
+          const tempComparedState: SortState = JSON.parse(
+            JSON.stringify({ bars: [...elements] }),
+          );
           tempComparedState.bars[j].isColored = true;
           tempComparedState.bars[j + 1].isColored = true;
           states.push(tempComparedState);
@@ -39,6 +50,9 @@ class SortingAlgorithms {
         break;
       }
     }
+
+    // remove highlights in the last state
+    states.push(createFinalState(states[states.length - 1]));
 
     return states;
   }

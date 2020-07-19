@@ -11,15 +11,9 @@ const Display: React.FC<StoreProps> = ({ store }) => {
     if (store.state !== MenuStates.playing) {
       return;
     }
-
     setTimeout(() => {
-      store.solStep++;
-      if (!store.solution[store.solStep]?.bars) {
-        store.state = 3;
-        return;
-      }
-      store.bars = store.solution[store.solStep].bars;
-    }, 10);
+      store.nextState();
+    }, store.animSpeed);
   });
 
   return (
@@ -39,7 +33,7 @@ const Display: React.FC<StoreProps> = ({ store }) => {
                 style={{
                   color: '#fff',
                   backgroundColor: bar.isColored ? 'skyblue' : '#000',
-                  height: bar.value * 5,
+                  height: bar.value * 6,
                   padding: 5,
                 }}
               >
