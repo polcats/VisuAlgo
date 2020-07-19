@@ -31,7 +31,7 @@ const Display: React.FC<StoreProps> = ({ store }) => {
               <div
                 className={`bar ${bar.isColored ? 'colored' : ''}`}
                 style={{
-                  height: bar.value * 6,
+                  height: (bar.value + 5) * 3,
                 }}
               >
                 <span className="text">{bar.value}</span>
