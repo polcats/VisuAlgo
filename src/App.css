@@ -5,3 +5,12 @@ span.menu-button {
 select {
   text-transform: capitalize;
 }
+
+div.bar {
+  transition: background-color ease-in 0.1s;
+}
+
+div.bar span.text {
+  display: block;
+  transform: rotate(-90deg);
+}

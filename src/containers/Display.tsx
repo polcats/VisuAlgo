@@ -37,7 +37,7 @@ const Display: React.FC<StoreProps> = ({ store }) => {
                   padding: 5,
                 }}
               >
-                {bar.value}
+                <span className="text">{bar.value}</span>
               </div>
             </Grid>
           );
