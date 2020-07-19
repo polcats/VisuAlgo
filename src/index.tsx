@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import 'mobx-react-lite/batchingForReactDom';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Menu from './containers/menu';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>hello</div>
+    <Menu />
   </React.StrictMode>,
   document.getElementById('root'),
 );
