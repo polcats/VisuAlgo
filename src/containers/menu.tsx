@@ -20,7 +20,7 @@ const Menu: React.FC<StoreProps> = ({ store }) => {
       >
         <MenuSliders store={store} />
         <MenuSelects store={store} />
-        <MenuControls />
+        <MenuControls store={store} />
       </Grid>
     </Box>
   );

@@ -43,6 +43,7 @@ const MenuSelects: React.FC<StoreProps> = ({ store }) => {
               id: 'uncontrolled-native',
             }}
             onChange={onSetAlgo}
+            disabled={store.state !== 0 ? true : false}
           >
             {Object.keys(Algorithms).map((algo, key) => {
               return (
@@ -65,6 +66,7 @@ const MenuSelects: React.FC<StoreProps> = ({ store }) => {
               id: 'uncontrolled-native',
             }}
             onChange={onSetOrder}
+            disabled={store.state !== 0 ? true : false}
           >
             {Object.keys(SortOrder).map((order, key) => {
               return (

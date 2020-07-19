@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import MenuModel from '../models/MenuModel';
+import { StoreProps } from '../store/StoreProps';
+import { MenuStates } from '../models/MenuModel';
 
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 
-type DisplayProps = {
-  store: MenuModel;
-};
+const Display: React.FC<StoreProps> = ({ store }) => {
+  useEffect(() => {
+    if (store.state !== MenuStates.playing) {
+      return;
+    }
 
-const Display: React.FC<DisplayProps> = ({ store }) => {
+    setTimeout(() => {
+      store.solStep++;
+      if (!store.solution[store.solStep]?.bars) {
+        store.state = 3;
+        return;
+      }
+      store.bars = store.solution[store.solStep].bars;
+    }, 10);
+  });
+
   return (
     <Box color="text.primary">
       <Grid
@@ -26,7 +38,7 @@ const Display: React.FC<DisplayProps> = ({ store }) => {
                 className="bar"
                 style={{
                   color: '#fff',
-                  backgroundColor: '#000',
+                  backgroundColor: bar.isColored ? 'skyblue' : '#000',
                   height: bar.value * 5,
                   padding: 5,
                 }}

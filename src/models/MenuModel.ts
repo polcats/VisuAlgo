@@ -1,10 +1,12 @@
 import { observable } from 'mobx';
 import { model, Model, modelAction, prop } from 'mobx-keystone';
+import SortingAlgorithms, { SortState } from '../SortingAlgorithms';
 
-enum MenuStates {
+export enum MenuStates {
   idle,
   playing,
   paused,
+  done,
 }
 
 export enum Algorithms {
@@ -21,7 +23,7 @@ export enum SortOrder {
   descending = '2',
 }
 
-type Bar = {
+export type Bar = {
   value: number;
   isColored: boolean;
 };
@@ -38,6 +40,8 @@ class MenuModel extends Model({
 
   defaultElements = 15;
   defaultSpeed = 50;
+  solStep = 0;
+  solution: SortState[] = [];
 
   @observable
   bars: Bar[] = [];
@@ -60,6 +64,43 @@ class MenuModel extends Model({
     }
 
     this.bars = Array.from(set);
+  };
+
+  @modelAction
+  generateSortSequence = () => {
+    this.solution = SortingAlgorithms.bubble(this.bars, this.order);
+    this.bars = this.solution[this.solStep].bars;
+    this.state = MenuStates.playing;
+  };
+
+  @modelAction
+  play = () => {
+    if (this.state === MenuStates.idle) {
+      this.generateSortSequence();
+      return;
+    } else if (this.state === MenuStates.done) {
+      return;
+    } else if (this.state === MenuStates.paused) {
+      this.bars = this.solution[this.solStep].bars;
+      this.state = MenuStates.playing;
+    }
+  };
+
+  @modelAction
+  pause = () => {
+    if (this.state !== 1) {
+      return;
+    }
+
+    this.state = 2;
+  };
+
+  @modelAction
+  reset = () => {
+    this.state = 0;
+    this.solution = [];
+    this.solStep = 0;
+    this.generateBars();
   };
 }
 
