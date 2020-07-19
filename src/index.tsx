@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import Menu from './containers/Menu';
 import Display from './containers/Display';
 import createStore from './store/store';
+import './App.css';
 
 const App = () => {
   const store = createStore();

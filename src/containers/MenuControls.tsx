@@ -10,27 +10,35 @@ import ReplayIcon from '@material-ui/icons/Replay';
 const MenuControls: React.FC<StoreProps> = ({ store }) => {
   return (
     <Grid item>
-      <PlayCircleFilledIcon
-        color={store.state === 0 || store.state === 2 ? 'primary' : 'disabled'}
-        fontSize="large"
-        onClick={() => {
-          store.play();
-        }}
-      />
-      <PauseCircleFilledIcon
-        color={store.state !== 1 ? 'disabled' : 'primary'}
-        fontSize="large"
-        onClick={() => {
-          store.pause();
-        }}
-      />
-      <ReplayIcon
-        color={store.state !== 1 ? 'primary' : 'disabled'}
-        fontSize="large"
-        onClick={() => {
-          store.reset();
-        }}
-      />
+      <span className="menu-button" title="Play">
+        <PlayCircleFilledIcon
+          color={
+            store.state === 0 || store.state === 2 ? 'primary' : 'disabled'
+          }
+          fontSize="large"
+          onClick={() => {
+            store.play();
+          }}
+        />
+      </span>
+      <span className="menu-button" title="Pause">
+        <PauseCircleFilledIcon
+          color={store.state !== 1 ? 'disabled' : 'primary'}
+          fontSize="large"
+          onClick={() => {
+            store.pause();
+          }}
+        />
+      </span>
+      <span className="menu-button" title="Reset">
+        <ReplayIcon
+          color={store.state !== 1 ? 'primary' : 'disabled'}
+          fontSize="large"
+          onClick={() => {
+            store.reset();
+          }}
+        />
+      </span>
     </Grid>
   );
 };

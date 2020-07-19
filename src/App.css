@@ -1,0 +1,7 @@
+span.menu-button {
+  cursor: pointer;
+}
+
+select {
+  text-transform: capitalize;
+}
