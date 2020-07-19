@@ -17,7 +17,7 @@ const Display: React.FC<StoreProps> = ({ store }) => {
   });
 
   return (
-    <Box color="text.primary">
+    <Box color="text.primary" id="display">
       <Grid
         container
         direction="row"
@@ -29,12 +29,9 @@ const Display: React.FC<StoreProps> = ({ store }) => {
           return (
             <Grid key={key} item>
               <div
-                className="bar"
+                className={`bar ${bar.isColored ? 'colored' : ''}`}
                 style={{
-                  color: '#fff',
-                  backgroundColor: bar.isColored ? 'skyblue' : '#000',
                   height: bar.value * 6,
-                  padding: 5,
                 }}
               >
                 <span className="text">{bar.value}</span>

@@ -1,3 +1,22 @@
+html,
+body,
+div#root {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+div#menu-bar {
+  background: #eee;
+}
+
+div#display {
+  background: #222;
+  padding-top: 10px;
+  height: 100%;
+}
+
 span.menu-button {
   cursor: pointer;
 }
@@ -8,6 +27,14 @@ select {
 
 div.bar {
   transition: background-color ease-in 0.1s;
+  background: #999;
+  padding: 5px;
+  font-weight: bold;
+  color: #fff;
+}
+
+div.bar.colored {
+  background: skyblue;
 }
 
 div.bar span.text {

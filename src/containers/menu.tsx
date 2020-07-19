@@ -10,7 +10,7 @@ import MenuControls from './MenuControls';
 
 const Menu: React.FC<StoreProps> = ({ store }) => {
   return (
-    <Box color="text.primary">
+    <Box color="text.primary" id="menu-bar">
       <Grid
         container
         direction="row"
