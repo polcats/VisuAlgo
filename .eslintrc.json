@@ -1,0 +1,54 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "no-underscore-dangle": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "react/boolean-prop-naming": [
+      "warn",
+      {
+        "propTypeNames": ["bool"],
+        "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+",
+        "validateNested": true
+      }
+    ],
+    "react/default-props-match-prop-types": "warn",
+    "react/destructuring-assignment": "warn",
+    "react/forbid-prop-types": "error",
+    "react/jsx-boolean-value": ["warn", "never"],
+    "react/jsx-filename-extension": "off",
+    "react/jsx-fragments": ["warn", "element"],
+    "react/jsx-handler-names": "warn",
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "reservedFirst": true,
+        "shorthandFirst": true
+      }
+    ],
+    "react/no-access-state-in-setstate": "error",
+    "react/no-unused-prop-types": "warn",
+    "react/no-unused-state": "warn",
+    "react/no-string-refs": ["warn", { "noTemplateLiterals": true }],
+    "react/no-this-in-sfc": "error",
+    "react/prefer-stateless-function": "off",
+    "react/require-default-props": [
+      "error",
+      { "forbidDefaultForRequired": true }
+    ],
+    "react/sort-comp": "error"
+  }
+}
