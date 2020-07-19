@@ -4,10 +4,22 @@ import 'mobx-react-lite/batchingForReactDom';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Menu from './containers/Menu';
+import Display from './containers/Display';
+import createStore from './store/store';
+
+const App = () => {
+  const store = createStore();
+  return (
+    <>
+      <Menu store={store} />
+      <Display store={store} />
+    </>
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <Menu />
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
 );

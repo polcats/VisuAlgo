@@ -1,6 +1,9 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { StoreProps } from '../store/StoreProps';
+import { Algorithms, SortOrder } from '../models/MenuModel';
+
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -16,16 +19,16 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const MenuSelects: React.FC<{}> = () => {
+const MenuSelects: React.FC<StoreProps> = ({ store }) => {
   const classes = useStyles();
-  const [algo, setAlgo] = React.useState('bubble');
-  const [order, setOrder] = React.useState('asc');
 
   const onSetAlgo = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setAlgo(event.target.value as string);
+    store.algorithm = event.target.value as Algorithms;
+    console.log(store.algorithm);
   };
   const onSetOrder = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setOrder(event.target.value as string);
+    store.order = event.target.value as SortOrder;
+    console.log(store.order);
   };
 
   return (
@@ -34,16 +37,20 @@ const MenuSelects: React.FC<{}> = () => {
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="uncontrolled-native">Algorithm</InputLabel>
           <NativeSelect
-            defaultValue={algo}
+            defaultValue={store.algorithm}
             inputProps={{
               name: 'name',
               id: 'uncontrolled-native',
             }}
             onChange={onSetAlgo}
           >
-            <option value="bubble">Bubble Sort</option>
-            <option value={20}>Twenty</option>
-            <option value={30}>Thirty</option>
+            {Object.keys(Algorithms).map((algo, key) => {
+              return (
+                <option key={key} value={algo}>
+                  {`${algo} sort`}
+                </option>
+              );
+            })}
           </NativeSelect>
           <FormHelperText>Select a sorting algorithm</FormHelperText>
         </FormControl>
@@ -52,15 +59,20 @@ const MenuSelects: React.FC<{}> = () => {
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="uncontrolled-native">Order</InputLabel>
           <NativeSelect
-            defaultValue={order}
+            defaultValue={store.order}
             inputProps={{
               name: 'name',
               id: 'uncontrolled-native',
             }}
             onChange={onSetOrder}
           >
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
+            {Object.keys(SortOrder).map((order, key) => {
+              return (
+                <option key={key} value={order}>
+                  {order}
+                </option>
+              );
+            })}
           </NativeSelect>
           <FormHelperText>Select a sorting order</FormHelperText>
         </FormControl>

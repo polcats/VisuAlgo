@@ -1,12 +1,14 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { StoreProps } from '../store/StoreProps';
+
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import MenuSliders from './MenuSliders';
 import MenuSelects from './MenuSelects';
 import MenuControls from './MenuControls';
 
-const Menu: React.FC<{}> = () => {
+const Menu: React.FC<StoreProps> = ({ store }) => {
   return (
     <Box color="text.primary">
       <Grid
@@ -16,8 +18,8 @@ const Menu: React.FC<{}> = () => {
         alignItems="center"
         spacing={3}
       >
-        <MenuSliders />
-        <MenuSelects />
+        <MenuSliders store={store} />
+        <MenuSelects store={store} />
         <MenuControls />
       </Grid>
     </Box>
