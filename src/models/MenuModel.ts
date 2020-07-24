@@ -88,6 +88,10 @@ class MenuModel extends Model({
         sol = SortingAlgorithms.comb(this.bars, this.order);
         break;
       }
+      case Algorithms.heap: {
+        sol = SortingAlgorithms.heap(this.bars, this.order);
+        break;
+      }
       case Algorithms.insertion: {
         sol = SortingAlgorithms.insertion(this.bars, this.order);
         break;

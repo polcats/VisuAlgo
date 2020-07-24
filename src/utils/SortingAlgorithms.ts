@@ -230,6 +230,84 @@ class SortingAlgorithms {
     states.push(createFinalState(states[states.length - 1]));
     return states;
   }
+
+  static heap(e: Bar[], order: string) {
+    const n: number = e.length;
+    let elements = [...e];
+    let states: SortState[] = [];
+
+    const heapify = (
+      elements: Bar[],
+      n: number,
+      i: number,
+      solution: SortState[],
+      order: string,
+    ) => {
+      let current = i;
+      let left = 2 * i + 1;
+      let right = 2 * i + 2;
+
+      if (
+        left < n &&
+        (order == 'ascending'
+          ? elements[left].value > elements[current].value
+          : elements[left].value < elements[current].value)
+      ) {
+        current = left;
+      }
+
+      if (
+        right < n &&
+        (order == 'ascending'
+          ? elements[right].value > elements[current].value
+          : elements[right].value < elements[current].value)
+      ) {
+        current = right;
+      }
+
+      let tempState: SortState = JSON.parse(
+        JSON.stringify({ bars: [...elements] }),
+      );
+      tempState.bars[i].isColored = true;
+      tempState.bars[current].isColored = true;
+      states.push(tempState);
+
+      if (current != i) {
+        const temp = elements[i];
+        elements[i] = elements[current];
+        elements[current] = temp;
+
+        tempState = JSON.parse(JSON.stringify({ bars: [...elements] }));
+        tempState.bars[i].isColored = true;
+        tempState.bars[current].isColored = true;
+        states.push(tempState);
+
+        heapify(elements, n, current, solution, order);
+      }
+    };
+
+    for (let i = Math.trunc(n / 2) - 1; i >= 0; --i) {
+      heapify(elements, n, i, states, order);
+    }
+
+    for (let i = n - 1; i >= 0; --i) {
+      const temp = elements[0];
+      elements[0] = elements[i];
+      elements[i] = temp;
+
+      const tempState: SortState = JSON.parse(
+        JSON.stringify({ bars: [...elements] }),
+      );
+      tempState.bars[0].isColored = true;
+      tempState.bars[i].isColored = true;
+      states.push(tempState);
+
+      heapify(elements, i, 0, states, order);
+    }
+
+    states.push(createFinalState(states[states.length - 1]));
+    return states;
+  }
 }
 
 export default SortingAlgorithms;
