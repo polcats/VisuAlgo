@@ -24,11 +24,9 @@ const MenuSelects: React.FC<StoreProps> = ({ store }) => {
 
   const onSetAlgo = (event: React.ChangeEvent<{ value: unknown }>) => {
     store.algorithm = event.target.value as Algorithms;
-    console.log(store.algorithm);
   };
   const onSetOrder = (event: React.ChangeEvent<{ value: unknown }>) => {
     store.order = event.target.value as SortOrder;
-    console.log(store.order);
   };
 
   return (
