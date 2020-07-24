@@ -278,7 +278,7 @@ class SortingAlgorithms {
         for (
           j = i;
           j >= gap &&
-          (order == 'desc'
+          (order == 'descending'
             ? elements[j - gap].value < temp.value
             : elements[j - gap].value > temp.value);
           j -= gap
