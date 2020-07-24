@@ -106,10 +106,6 @@ class SortingAlgorithms {
     let elements = [...e];
     let states: SortState[] = [];
 
-    let i = 0;
-    let j = 0;
-    let key = elements[0];
-
     for (let i = 1; i < elements.length; ++i) {
       let key = elements[i];
       let j = i - 1;
