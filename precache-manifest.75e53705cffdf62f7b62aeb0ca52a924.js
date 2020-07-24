@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "32f8d4b88712155da7375a931e8fcb3e",
+    "revision": "44b7d35c9f436419a050c7da7607f6f5",
     "url": "/VisuAlgo/index.html"
   },
   {
-    "revision": "95fa3afdfa62c7d192de",
+    "revision": "41792c7787d49e33de3e",
     "url": "/VisuAlgo/static/css/main.3420d888.chunk.css"
   },
   {
-    "revision": "ae50c8c0e6c8c3a09a81",
-    "url": "/VisuAlgo/static/js/2.842fbbbf.chunk.js"
+    "revision": "08f4c1cb97fd907a39e4",
+    "url": "/VisuAlgo/static/js/2.bc3d78fc.chunk.js"
   },
   {
     "revision": "5727441246ffa49345a3574f984c2034",
-    "url": "/VisuAlgo/static/js/2.842fbbbf.chunk.js.LICENSE.txt"
+    "url": "/VisuAlgo/static/js/2.bc3d78fc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "95fa3afdfa62c7d192de",
-    "url": "/VisuAlgo/static/js/main.12322e4a.chunk.js"
+    "revision": "41792c7787d49e33de3e",
+    "url": "/VisuAlgo/static/js/main.f4c16b50.chunk.js"
   },
   {
     "revision": "3ca06de6b6c0b5b39048",

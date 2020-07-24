@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/VisuAlgo/precache-manifest.66f1840b1cd8f9e190262442f44c80ec.js"
+  "/VisuAlgo/precache-manifest.75e53705cffdf62f7b62aeb0ca52a924.js"
 );
 
 self.addEventListener('message', (event) => {

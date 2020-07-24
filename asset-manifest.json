@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/VisuAlgo/static/css/main.3420d888.chunk.css",
-    "main.js": "/VisuAlgo/static/js/main.12322e4a.chunk.js",
-    "main.js.map": "/VisuAlgo/static/js/main.12322e4a.chunk.js.map",
+    "main.js": "/VisuAlgo/static/js/main.f4c16b50.chunk.js",
+    "main.js.map": "/VisuAlgo/static/js/main.f4c16b50.chunk.js.map",
     "runtime-main.js": "/VisuAlgo/static/js/runtime-main.6c2ae19f.js",
     "runtime-main.js.map": "/VisuAlgo/static/js/runtime-main.6c2ae19f.js.map",
-    "static/js/2.842fbbbf.chunk.js": "/VisuAlgo/static/js/2.842fbbbf.chunk.js",
-    "static/js/2.842fbbbf.chunk.js.map": "/VisuAlgo/static/js/2.842fbbbf.chunk.js.map",
+    "static/js/2.bc3d78fc.chunk.js": "/VisuAlgo/static/js/2.bc3d78fc.chunk.js",
+    "static/js/2.bc3d78fc.chunk.js.map": "/VisuAlgo/static/js/2.bc3d78fc.chunk.js.map",
     "index.html": "/VisuAlgo/index.html",
-    "precache-manifest.66f1840b1cd8f9e190262442f44c80ec.js": "/VisuAlgo/precache-manifest.66f1840b1cd8f9e190262442f44c80ec.js",
+    "precache-manifest.75e53705cffdf62f7b62aeb0ca52a924.js": "/VisuAlgo/precache-manifest.75e53705cffdf62f7b62aeb0ca52a924.js",
     "service-worker.js": "/VisuAlgo/service-worker.js",
     "static/css/main.3420d888.chunk.css.map": "/VisuAlgo/static/css/main.3420d888.chunk.css.map",
-    "static/js/2.842fbbbf.chunk.js.LICENSE.txt": "/VisuAlgo/static/js/2.842fbbbf.chunk.js.LICENSE.txt",
+    "static/js/2.bc3d78fc.chunk.js.LICENSE.txt": "/VisuAlgo/static/js/2.bc3d78fc.chunk.js.LICENSE.txt",
     "static/media/App.css": "/VisuAlgo/static/media/Ubuntu-L.8571edb1.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.6c2ae19f.js",
-    "static/js/2.842fbbbf.chunk.js",
+    "static/js/2.bc3d78fc.chunk.js",
     "static/css/main.3420d888.chunk.css",
-    "static/js/main.12322e4a.chunk.js"
+    "static/js/main.f4c16b50.chunk.js"
   ]
 }
