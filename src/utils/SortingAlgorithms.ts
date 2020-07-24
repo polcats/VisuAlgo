@@ -101,6 +101,56 @@ class SortingAlgorithms {
     states.push(createFinalState(states[states.length - 1]));
     return states;
   }
+
+  static insertion(e: Bar[], order: string) {
+    let elements = [...e];
+    let states: SortState[] = [];
+
+    let i = 0;
+    let j = 0;
+    let key = elements[0];
+
+    for (let i = 1; i < elements.length; ++i) {
+      let key = elements[i];
+      let j = i - 1;
+
+      const tempState: SortState = JSON.parse(
+        JSON.stringify({ bars: [...elements] }),
+      );
+      tempState.bars[j].isColored = true;
+      tempState.bars[j + 1].isColored = true;
+      states.push(tempState);
+
+      while (
+        j >= 0 &&
+        (order === 'descending'
+          ? elements[j].value < key.value
+          : elements[j].value > key.value)
+      ) {
+        const tempComparedState: SortState = JSON.parse(
+          JSON.stringify({ bars: [...elements] }),
+        );
+        tempComparedState.bars[j].isColored = true;
+        tempComparedState.bars[j + 1].isColored = true;
+        states.push(tempComparedState);
+
+        elements[j + 1] = elements[j];
+
+        const tempComparedState2: SortState = JSON.parse(
+          JSON.stringify({ bars: [...elements] }),
+        );
+        tempComparedState2.bars[j].isColored = true;
+        tempComparedState2.bars[j + 1].isColored = true;
+        states.push(tempComparedState2);
+
+        j = j - 1;
+      }
+      elements[j + 1] = key;
+    }
+
+    states.push(createFinalState(states[states.length - 1]));
+    return states;
+  }
 }
 
 export default SortingAlgorithms;
