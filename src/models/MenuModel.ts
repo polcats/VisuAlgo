@@ -66,7 +66,7 @@ class MenuModel extends Model({
     const elems = new Set<Number>();
 
     while (elems.size < this.elements) {
-      elems.add(Math.round(Math.random() * 99) + 1);
+      elems.add(Math.round(Math.random() * 98) + 1);
     }
 
     Array.from(elems).map((item) =>
