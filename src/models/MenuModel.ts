@@ -62,7 +62,7 @@ class MenuModel extends Model({
 
   @modelAction
   generateBars = () => {
-    const set: Bar[] = [];
+    const bars = new Set<Bar>();
     const elems = new Set<Number>();
 
     while (elems.size < this.elements) {
@@ -70,10 +70,10 @@ class MenuModel extends Model({
     }
 
     Array.from(elems).map((item) =>
-      set.push({ value: item as number, isColored: false }),
+      bars.add({ value: item as number, isColored: false }),
     );
 
-    this.bars = set;
+    this.bars = Array.from(bars);
   };
 
   @modelAction
