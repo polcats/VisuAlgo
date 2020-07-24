@@ -118,7 +118,7 @@ class SortingAlgorithms {
 
       if (
         left < n &&
-        (order == 'ascending'
+        (order === 'ascending'
           ? elements[left].value > elements[current].value
           : elements[left].value < elements[current].value)
       ) {
@@ -127,7 +127,7 @@ class SortingAlgorithms {
 
       if (
         right < n &&
-        (order == 'ascending'
+        (order === 'ascending'
           ? elements[right].value > elements[current].value
           : elements[right].value < elements[current].value)
       ) {
@@ -141,7 +141,7 @@ class SortingAlgorithms {
       tempState.bars[current].isColored = true;
       states.push(tempState);
 
-      if (current != i) {
+      if (current !== i) {
         const temp = elements[i];
         elements[i] = elements[current];
         elements[current] = temp;
@@ -278,7 +278,7 @@ class SortingAlgorithms {
         for (
           j = i;
           j >= gap &&
-          (order == 'descending'
+          (order === 'descending'
             ? elements[j - gap].value < temp.value
             : elements[j - gap].value > temp.value);
           j -= gap
