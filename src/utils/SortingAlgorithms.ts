@@ -20,7 +20,7 @@ class SortingAlgorithms {
     for (let i = 0; i < elements.length; ++i) {
       swapped = false;
       for (let j = 0; j < elements.length - 1; ++j) {
-        const tempState: SortState = JSON.parse(
+        let tempState: SortState = JSON.parse(
           JSON.stringify({ bars: [...elements] }),
         );
         tempState.bars[j].isColored = true;
@@ -37,12 +37,10 @@ class SortingAlgorithms {
           elements[j] = elements[j + 1];
           elements[j + 1] = tempElem;
 
-          const tempComparedState: SortState = JSON.parse(
-            JSON.stringify({ bars: [...elements] }),
-          );
-          tempComparedState.bars[j].isColored = true;
-          tempComparedState.bars[j + 1].isColored = true;
-          states.push(tempComparedState);
+          tempState = JSON.parse(JSON.stringify({ bars: [...elements] }));
+          tempState.bars[j].isColored = true;
+          tempState.bars[j + 1].isColored = true;
+          states.push(tempState);
         }
       }
 
@@ -51,9 +49,7 @@ class SortingAlgorithms {
       }
     }
 
-    // remove highlights in the last state
     states.push(createFinalState(states[states.length - 1]));
-
     return states;
   }
 
@@ -74,26 +70,28 @@ class SortingAlgorithms {
       swapped = false;
 
       for (let i = 0; i < n - gap; ++i) {
-        const tempState: SortState = JSON.parse(
+        let tempState: SortState = JSON.parse(
           JSON.stringify({ bars: [...elements] }),
         );
         tempState.bars[i].isColored = true;
         tempState.bars[i + gap].isColored = true;
         states.push(tempState);
 
-        if (order === 'descending' ? e[i] < e[gap + i] : e[i] > e[gap + i]) {
+        if (
+          order === 'descending'
+            ? elements[i].value < elements[gap + i].value
+            : elements[i].value > elements[gap + i].value
+        ) {
           swapped = true;
 
-          const temp = e[i];
-          e[i] = e[gap + i];
-          e[i + gap] = temp;
+          const temp = elements[i];
+          elements[i] = elements[gap + i];
+          elements[i + gap] = temp;
 
-          const tempComparedState: SortState = JSON.parse(
-            JSON.stringify({ bars: [...elements] }),
-          );
-          tempComparedState.bars[i].isColored = true;
-          tempComparedState.bars[i + gap].isColored = true;
-          states.push(tempComparedState);
+          tempState = JSON.parse(JSON.stringify({ bars: [...elements] }));
+          tempState.bars[i].isColored = true;
+          tempState.bars[i + gap].isColored = true;
+          states.push(tempState);
         }
       }
     }
