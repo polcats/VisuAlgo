@@ -147,6 +147,49 @@ class SortingAlgorithms {
     states.push(createFinalState(states[states.length - 1]));
     return states;
   }
+
+  static selection(e: Bar[], order: string) {
+    let elements = [...e];
+    let states: SortState[] = [];
+
+    for (let i = 0; i < elements.length - 1; ++i) {
+      let current = i;
+
+      const tempState: SortState = JSON.parse(
+        JSON.stringify({ bars: [...elements] }),
+      );
+      tempState.bars[i].isColored = true;
+      tempState.bars[current].isColored = true;
+      states.push(tempState);
+
+      let j = 0;
+      for (j = i + 1; j < elements.length; ++j) {
+        const tempComparedState: SortState = JSON.parse(
+          JSON.stringify({ bars: [...elements] }),
+        );
+
+        tempComparedState.bars[i].isColored = true;
+        tempComparedState.bars[j].isColored = true;
+        tempComparedState.bars[current].isColored = true;
+        states.push(tempComparedState);
+
+        if (
+          order === 'descending'
+            ? elements[j].value > elements[current].value
+            : elements[j].value < elements[current].value
+        ) {
+          current = j;
+        }
+      }
+
+      const temp = elements[current];
+      elements[current] = elements[i];
+      elements[i] = temp;
+    }
+
+    states.push(createFinalState(states[states.length - 1]));
+    return states;
+  }
 }
 
 export default SortingAlgorithms;
