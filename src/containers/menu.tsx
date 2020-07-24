@@ -4,9 +4,9 @@ import { StoreProps } from '../store/StoreProps';
 
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import MenuSliders from './MenuSliders';
-import MenuSelects from './MenuSelects';
-import MenuControls from './MenuControls';
+import MenuSliders from '../components/MenuSliders';
+import MenuSelects from '../components/MenuSelects';
+import MenuControls from '../components/MenuControls';
 
 const Menu: React.FC<StoreProps> = ({ store }) => {
   return (

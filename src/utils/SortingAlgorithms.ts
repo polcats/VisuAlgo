@@ -1,4 +1,4 @@
-import { Bar } from './models/MenuModel';
+import { Bar } from '../models/MenuModel';
 
 export type SortState = {
   bars: Bar[];

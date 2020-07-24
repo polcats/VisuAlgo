@@ -1,6 +1,6 @@
 import { observable, computed } from 'mobx';
 import { model, Model, modelAction, prop } from 'mobx-keystone';
-import SortingAlgorithms, { SortState } from '../SortingAlgorithms';
+import SortingAlgorithms, { SortState } from '../utils/SortingAlgorithms';
 
 export enum MenuStates {
   idle,
