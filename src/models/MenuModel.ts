@@ -69,9 +69,9 @@ class MenuModel extends Model({
       elems.add(Math.round(Math.random() * 99) + 1);
     }
 
-    Array.from(elems).map((item) => {
-      set.push({ value: item as number, isColored: false });
-    });
+    Array.from(elems).map((item) =>
+      set.push({ value: item as number, isColored: false }),
+    );
 
     this.bars = set;
   };
