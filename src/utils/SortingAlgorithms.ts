@@ -149,7 +149,7 @@ class SortingAlgorithms {
     for (let i = 0; i < elements.length - 1; ++i) {
       let current = i;
 
-      const tempState: SortState = JSON.parse(
+      let tempState: SortState = JSON.parse(
         JSON.stringify({ bars: [...elements] }),
       );
       tempState.bars[i].isColored = true;
@@ -158,14 +158,11 @@ class SortingAlgorithms {
 
       let j = 0;
       for (j = i + 1; j < elements.length; ++j) {
-        const tempComparedState: SortState = JSON.parse(
-          JSON.stringify({ bars: [...elements] }),
-        );
-
-        tempComparedState.bars[i].isColored = true;
-        tempComparedState.bars[j].isColored = true;
-        tempComparedState.bars[current].isColored = true;
-        states.push(tempComparedState);
+        tempState = JSON.parse(JSON.stringify({ bars: [...elements] }));
+        tempState.bars[i].isColored = true;
+        tempState.bars[j].isColored = true;
+        tempState.bars[current].isColored = true;
+        states.push(tempState);
 
         if (
           order === 'descending'
