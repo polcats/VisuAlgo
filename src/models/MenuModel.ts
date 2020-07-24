@@ -10,12 +10,12 @@ export enum MenuStates {
 }
 
 export enum Algorithms {
-  bubble = '1',
-  comb = '2',
-  heap = '3',
-  insertion = '4',
-  selection = '5',
-  shell = '6',
+  bubble = 'bubble',
+  comb = 'comb',
+  heap = 'heap',
+  insertion = 'insertion',
+  selection = 'selection',
+  shell = 'shell',
 }
 
 export enum SortOrder {
@@ -50,7 +50,7 @@ class MenuModel extends Model({
   state = MenuStates.idle;
 
   @observable
-  algorithm = Algorithms.bubble;
+  algorithm: Algorithms = Algorithms.bubble;
 
   @observable
   order = SortOrder.ascending;
@@ -78,7 +78,23 @@ class MenuModel extends Model({
 
   @modelAction
   generateSortSequence = () => {
-    this.solution = SortingAlgorithms.bubble(this.bars, this.order);
+    let sol;
+    switch (this.algorithm) {
+      case Algorithms.bubble: {
+        sol = SortingAlgorithms.bubble(this.bars, this.order);
+        break;
+      }
+      case Algorithms.comb: {
+        sol = SortingAlgorithms.comb(this.bars, this.order);
+        break;
+      }
+    }
+
+    if (!sol) {
+      return;
+    }
+
+    this.solution = sol;
     this.bars = this.solution[this.solStep].bars;
     this.state = MenuStates.playing;
   };

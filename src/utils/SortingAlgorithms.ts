@@ -56,6 +56,51 @@ class SortingAlgorithms {
 
     return states;
   }
+
+  static comb(e: Bar[], order: string) {
+    let elements = [...e];
+    const n = elements.length;
+    let gap = n;
+    let swapped = true;
+    let states: SortState[] = [];
+
+    const getNextGap = (gap: number) => {
+      const local_gap = Math.floor((gap * 10) / 13);
+      return local_gap < 1 ? 1 : local_gap;
+    };
+
+    while (1 !== gap || true === swapped) {
+      gap = getNextGap(gap);
+      swapped = false;
+
+      for (let i = 0; i < n - gap; ++i) {
+        const tempState: SortState = JSON.parse(
+          JSON.stringify({ bars: [...elements] }),
+        );
+        tempState.bars[i].isColored = true;
+        tempState.bars[i + gap].isColored = true;
+        states.push(tempState);
+
+        if (order === 'descending' ? e[i] < e[gap + i] : e[i] > e[gap + i]) {
+          swapped = true;
+
+          const temp = e[i];
+          e[i] = e[gap + i];
+          e[i + gap] = temp;
+
+          const tempComparedState: SortState = JSON.parse(
+            JSON.stringify({ bars: [...elements] }),
+          );
+          tempComparedState.bars[i].isColored = true;
+          tempComparedState.bars[i + gap].isColored = true;
+          states.push(tempComparedState);
+        }
+      }
+    }
+
+    states.push(createFinalState(states[states.length - 1]));
+    return states;
+  }
 }
 
 export default SortingAlgorithms;
