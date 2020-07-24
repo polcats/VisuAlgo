@@ -96,6 +96,10 @@ class MenuModel extends Model({
         sol = SortingAlgorithms.selection(this.bars, this.order);
         break;
       }
+      case Algorithms.shell: {
+        sol = SortingAlgorithms.shell(this.bars, this.order);
+        break;
+      }
     }
 
     if (!sol) {
