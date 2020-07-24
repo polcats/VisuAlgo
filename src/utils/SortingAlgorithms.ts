@@ -108,7 +108,7 @@ class SortingAlgorithms {
       let key = elements[i];
       let j = i - 1;
 
-      const tempState: SortState = JSON.parse(
+      let tempState: SortState = JSON.parse(
         JSON.stringify({ bars: [...elements] }),
       );
       tempState.bars[j].isColored = true;
@@ -121,21 +121,17 @@ class SortingAlgorithms {
           ? elements[j].value < key.value
           : elements[j].value > key.value)
       ) {
-        const tempComparedState: SortState = JSON.parse(
-          JSON.stringify({ bars: [...elements] }),
-        );
-        tempComparedState.bars[j].isColored = true;
-        tempComparedState.bars[j + 1].isColored = true;
-        states.push(tempComparedState);
+        tempState = JSON.parse(JSON.stringify({ bars: [...elements] }));
+        tempState.bars[j].isColored = true;
+        tempState.bars[j + 1].isColored = true;
+        states.push(tempState);
 
         elements[j + 1] = elements[j];
 
-        const tempComparedState2: SortState = JSON.parse(
-          JSON.stringify({ bars: [...elements] }),
-        );
-        tempComparedState2.bars[j].isColored = true;
-        tempComparedState2.bars[j + 1].isColored = true;
-        states.push(tempComparedState2);
+        tempState = JSON.parse(JSON.stringify({ bars: [...elements] }));
+        tempState.bars[j].isColored = true;
+        tempState.bars[j + 1].isColored = true;
+        states.push(tempState);
 
         j = j - 1;
       }
