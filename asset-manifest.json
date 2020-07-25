@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/VisuAlgo/static/css/main.3420d888.chunk.css",
-    "main.js": "/VisuAlgo/static/js/main.f4c16b50.chunk.js",
-    "main.js.map": "/VisuAlgo/static/js/main.f4c16b50.chunk.js.map",
+    "main.js": "/VisuAlgo/static/js/main.c88200e1.chunk.js",
+    "main.js.map": "/VisuAlgo/static/js/main.c88200e1.chunk.js.map",
     "runtime-main.js": "/VisuAlgo/static/js/runtime-main.6c2ae19f.js",
     "runtime-main.js.map": "/VisuAlgo/static/js/runtime-main.6c2ae19f.js.map",
     "static/js/2.bc3d78fc.chunk.js": "/VisuAlgo/static/js/2.bc3d78fc.chunk.js",
     "static/js/2.bc3d78fc.chunk.js.map": "/VisuAlgo/static/js/2.bc3d78fc.chunk.js.map",
     "index.html": "/VisuAlgo/index.html",
-    "precache-manifest.75e53705cffdf62f7b62aeb0ca52a924.js": "/VisuAlgo/precache-manifest.75e53705cffdf62f7b62aeb0ca52a924.js",
+    "precache-manifest.417dcb8b5e1c0d48162117e478c10e18.js": "/VisuAlgo/precache-manifest.417dcb8b5e1c0d48162117e478c10e18.js",
     "service-worker.js": "/VisuAlgo/service-worker.js",
     "static/css/main.3420d888.chunk.css.map": "/VisuAlgo/static/css/main.3420d888.chunk.css.map",
     "static/js/2.bc3d78fc.chunk.js.LICENSE.txt": "/VisuAlgo/static/js/2.bc3d78fc.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.6c2ae19f.js",
     "static/js/2.bc3d78fc.chunk.js",
     "static/css/main.3420d888.chunk.css",
-    "static/js/main.f4c16b50.chunk.js"
+    "static/js/main.c88200e1.chunk.js"
   ]
 }
