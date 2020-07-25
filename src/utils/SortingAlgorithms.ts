@@ -118,18 +118,18 @@ class SortingAlgorithms {
 
       if (
         left < n &&
-        (order === 'ascending'
-          ? elements[left].value > elements[current].value
-          : elements[left].value < elements[current].value)
+        (order === 'descending'
+          ? elements[left].value < elements[current].value
+          : elements[left].value > elements[current].value)
       ) {
         current = left;
       }
 
       if (
         right < n &&
-        (order === 'ascending'
-          ? elements[right].value > elements[current].value
-          : elements[right].value < elements[current].value)
+        (order === 'descending'
+          ? elements[right].value < elements[current].value
+          : elements[right].value > elements[current].value)
       ) {
         current = right;
       }
