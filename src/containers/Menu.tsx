@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { StoreProps } from '../store/StoreProps';
-
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import MenuSliders from '../components/MenuSliders';

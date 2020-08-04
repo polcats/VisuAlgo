@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="A visualization of sorting algorithms." />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -22,6 +21,18 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>VisuAlgo</title>
+    <style type="text/css">
+      #repository {
+        z-index: 1000;
+        position: fixed;
+        right: 50px;
+        bottom: 50px;
+      }
+      a#repository img {
+        width: 50px;
+        height: 50px;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -36,5 +47,17 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <img style="display: none;" src="%PUBLIC_URL%/images/visualgo.png" />
+    <a
+      id="repository"
+      href="https://github.com/polcats/VisuAlgo"
+      target="_blank"
+    >
+      <img
+        src="%PUBLIC_URL%/images/github.png"
+        alt="GitHub"
+        title="Visit Repository"
+      />
+    </a>
   </body>
 </html>
